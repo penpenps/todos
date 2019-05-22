@@ -4,9 +4,7 @@ module.exports = (sequelize, DataTypes) => {
     title: DataTypes.STRING,
     description: DataTypes.TEXT,
     deadline: DataTypes.DATE,
-    status: DataTypes.ENUM('Undo', 'Doing', 'Done'),
-    createdAt: DataTypes.DATE,
-    updateAt: DataTypes.DATE
+    status: DataTypes.ENUM('Undo', 'Doing', 'Done')
   }, {});
   Task.associate = function(models) {
     models.Task.belongsTo(models.User, {
@@ -19,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
     models.Task.belongsTo(models.Category, {
       onDelete: "SET NULL",
       foreignKey: {
-        allowNull: true
+        allowNull: true 
       }
     });
   };
